@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>AI Event Camera</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- WATCHING MODE -->
+        <div id="watchingMode" class="screen active">
+            <div class="header">
+                <h1>AI EVENT CAMERA</h1>
+                <div class="status">
+                    <span class="status-indicator">●</span>
+                    <span id="statusText">WATCHING</span>
+                </div>
+            </div>
+
+            <div class="camera-container">
+                <video id="cameraFeed" playsinline autoplay muted></video>
+                <div class="camera-overlay" id="cameraOverlay"></div>
+            </div>
+
+            <div class="controls-section">
+                <div class="event-selector">
+                    <label>EVENT:</label>
+                    <select id="eventSelect">
+                        <option value="basketball-dunk">BASKETBALL DUNK</option>
+                        <option value="jump">JUMP</option>
+                        <option value="custom">CUSTOM EVENT</option>
+                    </select>
+                </div>
+
+                <button id="captureEventBtn" class="capture-button">
+                    CAPTURE EVENT
+                </button>
+            </div>
+        </div>
+
+        <!-- EVENT CAPTURED MODE -->
+        <div id="eventCapturedMode" class="screen">
+            <div class="header">
+                <h1>EVENT CAPTURED</h1>
+                <p class="subtext">Select your favourite:</p>
+            </div>
+
+            <div class="shots-grid">
+                <div class="shot-item" data-shot="0">
+                    <img class="shot-thumbnail" src="" alt="Shot 1">
+                    <label>SHOT 1</label>
+                </div>
+                <div class="shot-item" data-shot="1">
+                    <img class="shot-thumbnail" src="" alt="Shot 2">
+                    <label>SHOT 2</label>
+                </div>
+                <div class="shot-item" data-shot="2">
+                    <img class="shot-thumbnail" src="" alt="Shot 3">
+                    <label>SHOT 3</label>
+                </div>
+                <div class="shot-item" data-shot="3">
+                    <img class="shot-thumbnail" src="" alt="Shot 4">
+                    <label>SHOT 4</label>
+                </div>
+                <div class="shot-item" data-shot="4">
+                    <img class="shot-thumbnail" src="" alt="Shot 5">
+                    <label>SHOT 5</label>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="savePhotoBtn" class="action-button save-button">
+                    SAVE PHOTO
+                </button>
+                <button id="discardBtn" class="action-button discard-button">
+                    DISCARD
+                </button>
+            </div>
+        </div>
+
+        <!-- ERROR MODE -->
+        <div id="errorMode" class="screen">
+            <div class="header">
+                <h1>ERROR</h1>
+            </div>
+            <div class="error-content">
+                <p id="errorMessage"></p>
+                <button id="errorRetryBtn" class="action-button">
+                    RETRY
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="camera.js"></script>
+    <script src="buffer.js"></script>
+    <script src="frames.js"></script>
+    <script src="events.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
